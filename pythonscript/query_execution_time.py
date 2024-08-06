@@ -5,9 +5,9 @@ import psycopg2
 def measure_execution_time(cursor, query):
     start_time = time.time()
     cursor.execute(query)
-    cursor.fetchall()  # Fetch the data to ensure the query is fully executed
+    cursor.fetchall()  
     end_time = time.time()
-    execution_time = (end_time - start_time) * 1000  # Convert to milliseconds
+    execution_time = (end_time - start_time) * 1000 
     return execution_time
 
 mysql_conn = mysql.connector.connect(
