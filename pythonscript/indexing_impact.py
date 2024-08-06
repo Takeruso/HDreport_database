@@ -30,9 +30,9 @@ mariadb_cursor = mariadb_conn.cursor()
 def measure_execution_time(cursor, query):
     start_time = time.time()
     cursor.execute(query)
-    cursor.fetchall()  # Fetch the data to ensure the query is fully executed
+    cursor.fetchall()
     end_time = time.time()
-    execution_time = (end_time - start_time) * 1000  # Convert to milliseconds
+    execution_time = (end_time - start_time) * 1000 
     return execution_time
 
 def drop_index_if_exists(cursor, table_name, index_name):
