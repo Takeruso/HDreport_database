@@ -58,7 +58,6 @@ def execute_concurrent_queries_postgres(query, results, index):
     end_time = time.time()
     results[index] = end_time - start_time
 
-# D
 query = "SELECT * FROM employees WHERE emp_no < 10010"
 
 
