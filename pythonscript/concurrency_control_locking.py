@@ -3,7 +3,6 @@ import time
 import mysql.connector
 import psycopg2
 
-# Connection information
 mysql_config = {
     'host': 'localhost',
     'user': 'root',
@@ -23,7 +22,7 @@ mariadb_config = {
     'user': 'root',
     'password': '12345',
     'database': 'employees',
-    'port': 3307  # MariaDB port
+    'port': 3307 
 }
 
 def execute_concurrent_queries_mysql(query, results, index):
@@ -31,7 +30,7 @@ def execute_concurrent_queries_mysql(query, results, index):
     conn = mysql.connector.connect(**mysql_config)
     cursor = conn.cursor(buffered=True)
     cursor.execute(query)
-    cursor.fetchall()  # Fetch the data to ensure the query is fully executed
+    cursor.fetchall()  
     cursor.close()
     conn.close()
     end_time = time.time()
@@ -42,7 +41,7 @@ def execute_concurrent_queries_mariadb(query, results, index):
     conn = mysql.connector.connect(**mariadb_config)
     cursor = conn.cursor(buffered=True)
     cursor.execute(query)
-    cursor.fetchall()  # Fetch the data to ensure the query is fully executed
+    cursor.fetchall()  
     cursor.close()
     conn.close()
     end_time = time.time()
@@ -53,21 +52,21 @@ def execute_concurrent_queries_postgres(query, results, index):
     conn = psycopg2.connect(**postgres_config)
     cursor = conn.cursor()
     cursor.execute(query)
-    cursor.fetchall()  # Fetch the data to ensure the query is fully executed
+    cursor.fetchall() 
     cursor.close()
     conn.close()
     end_time = time.time()
     results[index] = end_time - start_time
 
-# Define query
+# D
 query = "SELECT * FROM employees WHERE emp_no < 10010"
 
-# List of Storing result
+
 results_mysql = [0] * 10
 results_mariadb = [0] * 10
 results_postgres = [0] * 10
 
-# Using sled and running query
+
 threads = []
 for i in range(10):  
     t1 = threading.Thread(target=execute_concurrent_queries_mysql, args=(query, results_mysql, i))
