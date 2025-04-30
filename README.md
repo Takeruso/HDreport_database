@@ -4,10 +4,15 @@
 🧑‍🎓 **Author**: Takeru (Second-year undergrad)  
 🧪 **Tech used**: Docker, WSL, Sysbench, Python, SQL  
 
-This report was produced in my second year of undergraduate study with limited SQL knowledge. With the help of AI tools, I designed and executed performance benchmarks for MySQL, MariaDB, and PostgreSQL under different workloads.
+This project was completed as a group assignment during my second year of undergraduate study at Swinburne.  
+Although my SQL skills were still developing at the time, I took the lead in designing and executing the benchmarking experiments.  
+With the support of AI tools, I set up isolated database environments using Docker on WSL, implemented automated tests with Python and Sysbench, and wrote most of the analysis and discussion sections in the final report.  
 
-## Contents
-- Experimental setup (WSL + Docker + Sysbench)
-- Query execution time & index impact
-- Concurrency benchmarking
-- Storage engine comparison
+---
+
+## 📂 Contents
+
+- Experimental setup (WSL + Docker + Sysbench)  
+- Query execution time & indexing impact  
+- Concurrency benchmarking  
+- Storage engine comparison  
