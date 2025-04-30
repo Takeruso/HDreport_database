@@ -66,7 +66,7 @@ This benchmarking project aimed to explore how common factors such as **indexing
 
 ### 🔹 Sysbench - PostgreSQL
 
-![PostgreSQL Sysbench](screenshot/postgresql_result_day2.png)  
+![PostgreSQL Sysbench](screenshot/postgresql_resutlt_day2.png)  
 > PostgreSQL: ~20,963 transactions, average latency ~4.77ms — lowest among all three engines.
 
 ---
