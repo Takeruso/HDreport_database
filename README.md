@@ -84,7 +84,7 @@ Key findings include:
 
 ## 📄 Report
 
-The full report is available in [`report/Comparison of.pdf`](../report/Comparison%20of.pdf)
+The full report is available in [`report/Comparison of.pdf`](../report/RDBMS_Performance_Report.pdf)
 
 ---
 
