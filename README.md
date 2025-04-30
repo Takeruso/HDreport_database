@@ -71,6 +71,21 @@ This benchmarking project aimed to explore how common factors such as **indexing
 
 ---
 
+## 🗂️ Data Used
+
+- 📁 **MySQL Employees Sample Dataset**  
+  A publicly available dataset from MySQL containing synthetic employee records.  
+  [https://dev.mysql.com/doc/employee/en/](https://dev.mysql.com/doc/employee/en/)
+
+- 🔧 **Sysbench OLTP Benchmark Data**  
+  Automatically generated test data using Sysbench’s built-in OLTP read/write script  
+  with a table size of 1,000,000 rows and 10 concurrent threads.
+
+- 📊 **Custom Benchmark Results**  
+  All latency, throughput, and execution plan data were collected during live tests using Python scripts and shell automation.
+
+---
+
 ## 📄 Report
 
 The full experimental methodology and results are documented in a private report.  
