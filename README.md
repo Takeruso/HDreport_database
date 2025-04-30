@@ -1,95 +1,89 @@
 # RDBMS Performance Comparison – MySQL, MariaDB, PostgreSQL
 
-📘 **Course**: COS20015 - Database Concepts (Swinburne University of Technology, Sarawak Campus)  
-👥 **Authors**: Takeru (102784225), Pang Jee Nee (102771146), Jessabel (102766540)  
-🧪 **Tech used**: Docker, WSL, Sysbench, Python, SQL  
-
-> 📄 **Disclaimer**:  
-> This report was produced as part of a group assignment for COS20015 – Database Concepts at Swinburne University of Technology (Sarawak Campus) in Semester 1, 2023.  
-> It is published here strictly for educational and portfolio purposes.  
-> The intellectual content belongs to the authors listed above.  
-> Redistribution, modification, or commercial use of this material is not permitted without permission.  
-> No official content or materials provided by Swinburne (e.g., assignment briefs, marking rubrics) are included.
-
-While the project was a team effort, I (Takeru) led the experimental design and execution, including Docker/WSL setup, benchmarking with Sysbench and Python, and writing most of the technical analysis and discussion in the final report.  
-Although my SQL knowledge was limited at the time, I actively used AI tools to overcome technical gaps and complete the benchmarks and report.
+This repository documents a benchmarking project comparing the performance of three widely used relational database systems — **MySQL**, **MariaDB**, and **PostgreSQL** — under a variety of read/write workloads using Docker containers on WSL. The benchmarks were conducted using Python scripts and Sysbench to automate query execution and concurrency testing.
 
 ---
 
 ## 📂 Contents
 
-- Experimental setup (WSL + Docker + Sysbench)  
-- Query execution time & indexing impact  
-- Concurrency benchmarking  
-- Storage engine comparison  
-- Query optimization plan analysis  
+- Docker-based experimental setup (WSL + Sysbench)
+- Query execution time (with/without indexing)
+- Concurrency performance benchmarking
+- Insert performance across storage engines (InnoDB, MyISAM)
+- Execution plan (EXPLAIN) analysis
 
 ---
 
-## 📝 Summary of the Report
+## 📝 Project Summary
 
-This report investigates the performance of three widely used relational database systems — **MySQL**, **MariaDB**, and **PostgreSQL** — under various workloads using Docker containers. The benchmarks were conducted via Python and Sysbench tools, focusing on:
+This benchmarking project aimed to explore how common factors such as **indexing**, **storage engine type**, and **concurrent workload levels** influence the performance of relational databases.
 
-- **Raw query execution time** (e.g., SELECT on indexed vs non-indexed columns)  
-- **Indexing impact on read performance**  
-- **Concurrency performance under 10-thread workloads**  
-- **Differences in execution plans and optimizers**  
-- **Insert performance comparison across storage engines (InnoDB, MyISAM)**  
+### Scope of Testing:
+- **SELECT and COUNT queries** on large tables (1M rows) with and without indexing.
+- **INSERT throughput** across different storage engines (InnoDB, MyISAM).
+- **Concurrency simulation** using 10 threads over a 60-second Sysbench OLTP workload.
+- **Execution plan analysis** using EXPLAIN outputs from each database engine.
 
-Key findings include:
+### Key Findings:
 
-- **MariaDB** generally showed fast performance for simple indexed reads.  
-- **PostgreSQL** demonstrated superior concurrency handling and consistent performance under stress.  
-- **Indexing significantly improved performance** across all systems, though PostgreSQL’s cost model offered better optimization in certain cases.  
-- **Storage engine selection** (e.g., MyISAM vs InnoDB) had a noticeable effect on insert latency.
+- 🔹 **MariaDB** performed best in simple indexed SELECT queries.
+- 🔹 **PostgreSQL** excelled in high-concurrency conditions and aggregate queries, showing consistent low-latency performance.
+- 🔹 **MySQL** delivered average results, heavily dependent on the storage engine used.
+- 🔹 Indexing improved performance across all engines, especially for COUNT-based queries.
+- 🔹 Storage engine selection (e.g., MyISAM vs InnoDB) significantly affected INSERT performance and latency.
 
 ---
 
-## 📸 Screenshots of Benchmark Results
+## 📸 Benchmark Screenshots
 
-### 🖼️ Query Execution Time & Index Impact
+### 🔹 Query Execution Time & Index Impact
 
 ![Query Execution Benchmark](screenshot/compare_result1.png)  
-> Execution time (ms) for SELECT queries before and after indexing across MySQL, MariaDB, and PostgreSQL.
+> SELECT performance before and after indexing across MySQL, MariaDB, and PostgreSQL.
 
 ---
 
-### 🖼️ Query Plan Analysis & Insert Time
+### 🔹 Query Plan Analysis & Insert Time
 
 ![Execution Plans & Insert Time](screenshot/compare_result2.png)  
-> Comparison of execution plans and INSERT performance across different storage engines and databases.
+> Execution plan differences and INSERT speed comparison across storage engines.
 
 ---
 
-### 🖼️ Sysbench - MariaDB (Read/Write)
+### 🔹 Sysbench - MariaDB
 
 ![MariaDB Sysbench](screenshot/mariadb_result_day2.png)  
-> MariaDB processed 58,357 transactions in 60s with average latency of ~10.28ms using 10 threads.
+> MariaDB: ~58,357 transactions in 60s, average latency ~10.28ms (10 threads).
 
 ---
 
-### 🖼️ Sysbench - MySQL (Read/Write)
+### 🔹 Sysbench - MySQL
 
 ![MySQL Sysbench](screenshot/mysql_result_day2.png)  
-> MySQL handled 20,845 transactions in 60s with average latency of ~28.78ms under 10 concurrent threads.
+> MySQL: ~20,845 transactions in 60s, average latency ~28.78ms (10 threads).
 
 ---
 
-### 🖼️ Sysbench - PostgreSQL (Read/Write)
+### 🔹 Sysbench - PostgreSQL
 
-![PostgreSQL Sysbench](screenshot/postgresql_resutlt_day2.png)  
-> PostgreSQL achieved 20,963 transactions with the lowest average latency (~4.77ms) among all three DBs.
+![PostgreSQL Sysbench](screenshot/postgresql_result_day2.png)  
+> PostgreSQL: ~20,963 transactions, average latency ~4.77ms — lowest among all three engines.
 
 ---
 
 ## 📄 Report
 
-The full report is available in [`report/Comparison of.pdf`](../report/RDBMS_Performance_Report.pdf)
+The full experimental methodology and results are documented in a private report.  
+To request access for educational or portfolio review purposes, please contact the repository owner.
 
 ---
 
 ## 📜 License
 
-Educational Use Only
+**Educational Use Only**
 
-This repository is provided solely for educational and portfolio purposes. All content is owned by the respective authors. You may not copy, redistribute, or use this material for commercial or academic cheating purposes.
+This repository is intended for educational and portfolio purposes only.  
+All content is original and reconstructed from personal experimentation.  
+No official university content (assignments, grading rubrics, or briefs) is included.
+
+You may not copy, redistribute, or use this material for commercial or academic cheating purposes.
