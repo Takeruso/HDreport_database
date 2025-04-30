@@ -77,7 +77,7 @@ Key findings include:
 
 ### 🖼️ Sysbench - PostgreSQL (Read/Write)
 
-![PostgreSQL Sysbench](screenshot/postgresql_result_day2.png)  
+![PostgreSQL Sysbench](screenshot/postgresql_resutlt_day2.png)  
 > PostgreSQL achieved 20,963 transactions with the lowest average latency (~4.77ms) among all three DBs.
 
 ---
