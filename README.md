@@ -86,19 +86,8 @@ This benchmarking project aimed to explore how common factors such as **indexing
 
 ---
 
-## 📄 Report
+## 📜 Disclaimer
 
-The full experimental methodology and results are documented in a private report.  
-To request access for educational or portfolio review purposes, please contact the repository owner.
-
----
-
-## 📜 License
-
-**Educational Use Only**
-
-This repository is intended for educational and portfolio purposes only.  
-All content is original and reconstructed from personal experimentation.  
-No official university content (assignments, grading rubrics, or briefs) is included.
-
-You may not copy, redistribute, or use this material for commercial or academic cheating purposes.
+This project serves as a personal portfolio piece demonstrating database performance benchmarking methodologies. 
+While based on past academic concepts, the implementation and analysis are reconstructed for educational purposes. 
+Please do not use this code for active university assignments.
